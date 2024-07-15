@@ -9,8 +9,8 @@ export default function Navigation() {
 
   return (
     <>
-      <header className={css.wrapper}>
-        <nav className={css.nav}>
+      <header className={css.header}>
+        <nav>
           <ul className={css.list}>
             <li>
               <NavLink to="/" className={activeNavLink}>

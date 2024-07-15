@@ -1,30 +1,38 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import "./App.module.css";
-import Navigation from "../Navigation/Navigation";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
-import MovieCast from "../MovieCast/MovieCast";
-import MovieReviews from "../MovieReviews/MovieReviews";
+import Navigation from "../../components/Navigation/Navigation";
 
-const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
-const MoviesPage = lazy(() => import("../../pages/MoviesPage/MoviesPage"));
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
+const MoviesPage = lazy(() => import("../../pages/MoviesPage/MoviesPage.jsx"));
 const MovieDetailsPage = lazy(() =>
-  import("../../pages/MovieDetailsPage/MovieDetailsPage")
+  import("../../pages/MovieDetailsPage/MovieDetailsPage.jsx")
+);
+const MovieCast = lazy(() =>
+  import("../../components/MovieCast/MovieCast.jsx")
+);
+const MovieReviews = lazy(() =>
+  import("../../components/MovieReviews/MovieReviews.jsx")
+);
+const NotFoundPage = lazy(() =>
+  import("../../pages/NotFoundPage/NotFoundPage.jsx")
 );
 
 export default function App() {
   return (
     <div>
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}></Suspense>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
-        <Route path="cast" element={<MovieCast />} />
-        <Route path="reviews" element={<MovieReviews />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<div>Loading page code...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
