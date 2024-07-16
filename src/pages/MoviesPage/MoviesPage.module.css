@@ -22,7 +22,6 @@
   padding: 8px 16px;
   margin-left: 8px;
   margin-top: 2px;
-
   color: mistyrose;
   background-color: #007bff;
   border: none;
@@ -38,4 +37,10 @@
 
 .formBtn:focus {
   outline: none;
+}
+.errorSearch {
+  text-align: center;
+  margin-top: 20px;
+  color: darkmagenta;
+  font-size: 40px;
 }

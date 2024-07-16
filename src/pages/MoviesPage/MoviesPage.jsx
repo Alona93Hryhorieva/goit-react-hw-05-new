@@ -18,7 +18,6 @@ export default function MoviesPage() {
     async function fetchMovies() {
       try {
         if (!newQuery) return;
-        console.log(newQuery);
 
         setError(false);
         setLoading(true);
@@ -36,7 +35,6 @@ export default function MoviesPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const inputQuery = event.target.elements.query.value.trim();
-    // console.log(inputQuery);
 
     if (!inputQuery) return alert("Error, enter movies");
 
@@ -62,18 +60,15 @@ export default function MoviesPage() {
         </button>
       </form>
       {loading && <Loader />}
-      <MovieList movies={movies} />
-      {movies.length === 0 && !loading && newQuery && !error && (
-        <ErrorMessage />
-      )}
       {error && <ErrorMessage />}
+      {movies.length === 0 &&
+      searchParams.get("query") &&
+      !loading &&
+      !error ? (
+        <p className={css.errorSearch}>No movies found. Please try again.</p>
+      ) : (
+        <MovieList movies={movies} />
+      )}
     </div>
   );
 }
-// {
-//   movies.length === 0 && searchParams.get("query") ? (
-//     <p className={s.errorSearch}>No movies found. Please try again.</p>
-//   ) : (
-//     movies.length > 0 && <MovieList movies={movies} />
-//   );
-// }
