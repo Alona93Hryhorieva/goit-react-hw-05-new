@@ -5,7 +5,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import { getMovieDetails } from "../../service/themoviedbApi";
 import css from "./MovieDetailsPage.module.css";
-import picture from "../../service/picture.jpg";
+import defaultPicture from "../../service/picture.jpg";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -52,7 +52,7 @@ export default function MovieDetailsPage() {
                 alt={movieDetails.overview}
               />
             ) : (
-              <img src={picture} alt="My Picture" />
+              <img src={defaultPicture} alt="My Picture" />
             )}
           </div>
           <div>

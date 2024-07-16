@@ -1,3 +1,11 @@
 .list {
   padding: 20px 20px 40px 40px;
 }
+.item {
+  padding: 5px;
+  transition: transform 0.5s;
+}
+.item :hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 10px rgba(170, 14, 118, 0.3);
+}

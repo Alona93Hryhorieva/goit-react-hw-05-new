@@ -46,7 +46,6 @@ export const getMovieDetails = async function (id) {
       // append_to_response:
       language: "en-US",
     },
-    options,
   });
 
   return response.data;
@@ -58,20 +57,23 @@ export const getMovieCredits = async function (id) {
       api_key: API_KEY,
       language: "en-US",
     },
-    options,
+    // options,
   });
-
-  return response.data;
+  // console.log("API Response:", response.data); // Додано для відлагодження
+  return response.data; // Оновлено з results на cast, якщо API повертає саме акторів
 };
-// export const getMovieReviews = async function (id, page) {
-//   const response = await axios.get(`${url}/movie/${id}/reviews`, {
-//     params: {
-//       movie_id: id,
-//       language: "en-US",
-//       page: page,
-//     },
-//     options,
-//   });
 
-//   return response.data.results;
-// };
+export const getMovieReviews = async function (id, page = 1) {
+  const response = await axios.get(`${baseUrl}/movie/${id}/reviews`, {
+    params: {
+      api_key: API_KEY,
+      language: "en-US",
+      page: page,
+      movie_id: id,
+    },
+    // options,
+  });
+  // console.log(response.data);
+
+  return response.data.results;
+};

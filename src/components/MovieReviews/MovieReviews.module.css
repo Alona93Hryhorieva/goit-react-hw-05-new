@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.item {
+  background-color: rgb(167, 191, 214);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* height: 400px; */
+}
+
+.name {
+  color: darkslateblue;
+  font-size: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.text {
+  font-size: larger;
+}
+
+.notFound {
+  text-align: center;
+  color: red;
+  margin-top: 32px;
+  font-size: 20px;
+}

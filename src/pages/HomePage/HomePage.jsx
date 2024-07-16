@@ -15,7 +15,7 @@ export default function HomePage() {
         setLoading(true);
         const data = await getTrendingMovies();
         setMovies(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         setError(true);
       } finally {
@@ -33,6 +33,3 @@ export default function HomePage() {
     </div>
   );
 }
-//  {movies.length === 0 && searchParams.get("query") ? (
-//           <p className={s.errorSearch}>No movies found. Please try again.</p>
-//         ) :( {movies.length > 0 && <MovieList movies={movies} />})

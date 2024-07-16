@@ -1,0 +1,43 @@
+.container {
+  padding: 16px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.list li {
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.5s;
+  width: calc((80% / 5) - 10px);
+  background-color: rgb(167, 191, 214);
+  text-align: center;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 3px;
+}
+
+.list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 5px 10px rgba(170, 14, 118, 0.3);
+}
+
+.actorImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.list h3 {
+  color: darkslateblue;
+  font-size: 20px;
+}
+.list p {
+  padding: 8px;
+  margin: 0;
+}
