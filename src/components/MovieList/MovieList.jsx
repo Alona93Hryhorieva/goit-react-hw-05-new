@@ -6,20 +6,20 @@ export default function MovieList({ movies }) {
   return (
     <>
       <ul className={css.list}>
-        {movies.map((movie) => {
-          return (
-            <li key={movie.id} className={css.item}>
-              <Link
-                to={{
-                  pathname: `/movies/${movie.id.toString()}`,
-                  state: { from: location.pathname },
-                }}
-              >
-                {movie.title}
-              </Link>
-            </li>
-          );
-        })}
+        {movies.map((movie) => (
+          <li key={movie.id} className={css.item}>
+            <Link
+              // to={{
+              //   pathname: `/movies/${movie.id.toString()}`,
+              //   state: { from: location.pathname },
+              // }}
+              to={`/movies/${movie.id}`}
+              state={location}
+            >
+              {movie.title}
+            </Link>
+          </li>
+        ))}
       </ul>
     </>
   );

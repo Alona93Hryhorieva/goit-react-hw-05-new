@@ -34,6 +34,8 @@ export default function MovieDetailsPage() {
     fetchMoviesById();
   }, [movieId]);
 
+  // const releaseYear = new Date(movieDetails.release_date).getFullYear();
+
   return (
     <div className={css.container}>
       {
@@ -57,6 +59,8 @@ export default function MovieDetailsPage() {
           </div>
           <div>
             <h1>{movieDetails.title}</h1>
+            {/* <h2 className={css.title}>Release Year:</h2>
+            <p className={css.text}>{movieDetails.release_date}</p> */}
             <h2 className={css.title}>User Score:</h2>{" "}
             <p className={css.text}>{movieDetails.vote_average}</p>
             <h2 className={css.title}>Overview: </h2>
